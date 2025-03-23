@@ -1,0 +1,40 @@
+h1{
+    padding: 20px
+}
+
+nav, footer{
+    background-color: #Cdf;
+}
+
+footer{ 
+    font-size: 17px;
+    font-weight: 600;
+}
+
+main{
+    
+    background-color: #eff;
+}
+li{
+    font-size: 20px;
+    font-weight: 500;
+
+}
+.header1{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.Noticia1 > h2, .Noticia2 > h2{
+    text-align: left;
+}
+
+.Noticia1 p, .Noticia2 p{
+    text-align: justify;
+}
+
+
+img{
+    width:100%;
+    height: auto;
+}
