@@ -1,0 +1,165 @@
+body{
+    background-color: #eef;
+    font-family: "Merriweather Sans", sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+header{
+    /*background-color: #32d;*/
+    background-color: #4AF;
+    height: 16vh;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.header1 img{
+    margin:0 auto; 
+}
+
+.header1{
+    width: 45vh;
+}
+.header2{
+    width: 70%;
+    display: flex;
+}
+.nav{
+    display: flex;
+    color:#eef;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    text-decoration: none;
+    padding: 0 5%;
+    font-weight: 400;
+}
+
+h1{
+    text-align: center;
+    color:#224;
+    font-weight: bolder;
+    font-size: 2.3rem;
+    letter-spacing: 2px;
+    padding: 0 20%;
+}
+
+
+h2{
+    color:#224;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+}
+
+.bloque1 {
+    width: 500px;
+    margin:0 auto;
+
+}
+.bloque2, .bloque3, .bloque4, .bloque5{
+    padding: 0 10%;
+    color:#445;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border-bottom: 1px solid black;
+    padding: 8px;
+    text-align: left;
+    color:#445;
+}
+th {
+    background-color: #4AF;
+    color: #eef;
+}
+
+.bloque3 h3{
+    color: #220;
+    border-bottom: 1px solid #220;
+
+}
+
+ol{
+    list-style: none;
+}
+
+
+.bloque4 li{
+    margin: auto;
+    background: #fff;
+    color: #220;
+    border-radius: 8px;
+    border-bottom: 1px solid black;;
+    padding: 1%;
+    width: 40%;
+    font-size: 17px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.bloque4 ul{
+    margin: auto;
+    list-style: none;
+}
+
+.bloque5 ul {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    list-style: none;
+}
+
+footer{
+    height: 160px;
+    background-color: #4AF;
+    color: #eef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+.footer1{
+    width: 40%;
+    padding: 0 6%;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer1 p{
+    margin: 0;
+}
+.footer1 img{
+    margin: 0 auto;
+}
+
+.footer2{
+    width: 60%;  
+}
+
+.f{
+    display: flex;
+    align-items: center; 
+}
+
+.footer2 p{
+    padding: 0 10px;
+}
+
+.merriweather-sans-<uniquifier> {
+    font-family: "Merriweather Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+  }
+
+  
