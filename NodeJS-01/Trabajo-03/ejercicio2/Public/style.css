@@ -1,0 +1,80 @@
+/* TODOS LOS ELEMENTOS HTML*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    background: #ddf;
+}
+/* CONTENEDOR DE BOTONES*/
+.container-buttons{
+    text-align: center;
+    background: #224;
+    height: 10vh;
+    display: flex;
+    gap: 10px;
+    align-items: center;    
+    justify-content: space-around;
+    position: sticky;
+    top: 0;
+}
+/* CADA BOTON */
+.button{
+    flex-grow: 2;
+    width: 0;
+    padding: 5px;
+    background: #48e;
+    border: none;
+    cursor: pointer;
+    transition: flex-grow .6s;
+}
+/* PALABRA CLAVE DEL BOTON*/
+strong{
+    color: #fff;
+}
+/* AL HACERCAR MOUSE HACIA EL BOTON*/
+.button:hover{
+    flex-grow: 3;
+    opacity: .8;
+    outline: 1px solid #fff;
+}
+
+/* CONTENEDOR DEL COMPONENTE */
+.container-component{
+    height: 90vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+/* CADA COMPONENTE*/
+.component{
+    width: 60%;
+    height: 80%;
+    background: #fff;
+    text-align: center;
+    padding: 10px;
+}
+/* CIRCULO DENTRO DE COMPONENTE */
+.box{
+    margin: 10px auto;
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+}
+/* COLOR DE CADA CIRCULO*/
+.box-1{
+    background-color: #00f;
+}
+.box-2{
+    background-color: #40a;
+}
+.box-3{
+    background-color: #707;
+}
+.box-4{
+    background-color: #a04;
+}
+.box-5{
+    background-color: #f00;
+}

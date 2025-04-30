@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EJERCIO 2</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- CONTENEDOR DE BOTONES-->
+        <div class="container-buttons">
+            <button onclick="mostrarComponente(1)" class="button">Mostrar Componente 1 <br><strong>CLICK</strong></button>
+            <button ondblclick="mostrarComponente(2)" class="button">Mostrar Componente 2 <br><strong>DOUBLE CLICK</strong></button>
+            <button onmouseenter="mostrarComponente(3)" class="button">Mostrar Componente 3<br><strong>ACERCAR MOUSE</strong></button>
+            <button onkeydown="mostrarComponente(4)" class="button">Mostrar Componente 4<br><strong>PRESIONAR TECLA</strong></button>
+            <button onmouseup="mostrarComponente(5)" class="button">Mostrar Componente 5<br><strong>SOLTAR MOUSE</strong></button>
+        </div>
+
+        <!-- CADA COMPONENTE POR SEPARADO-->
+        <div id="component-1" class="container-component">
+            <div class="component">
+                <h2>Componente 1</h2>
+                <div class="box box-1"></div>
+            </div>
+        </div>
+
+        <div id="component-2" class="container-component">
+            <div class="component">
+                <h2>Componente 2</h2>
+                <div class="box box-2"></div>
+            </div>
+        </div>
+
+        <div id="component-3" class="container-component">
+            <div class="component">
+                <h2>Componente 3</h2>
+                <div class="box box-3"></div>
+            </div>
+        </div>
+
+        <div id="component-4" class="container-component">
+            <div class="component">
+                <h2>Componente 4</h2>
+                <div class="box box-4"></div>
+            </div>
+        </div>
+
+        <div id="component-5" class="container-component">
+            <div class="component">
+                <h2>Componente 5</h2>
+                <div class="box box-5"></div>
+            </div>
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+</html>
