@@ -1,0 +1,1 @@
+6-Generar un proyecto en express que muestre un index con un formulario de registro en el que cuenten con campos del tipo texto, radio, select, checkbox, number, mail de una persona y que al finalizar lo muestre dinámicamente en el mismo html.
