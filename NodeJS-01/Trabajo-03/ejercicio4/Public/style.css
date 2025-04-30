@@ -1,0 +1,77 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #aab;
+    padding: 20px;
+}
+
+/* CONTENEDOR DEL BOTON CREADOR DE ENLACES */
+.container__principal-button{
+    text-align: center;
+    margin: 10px;
+}
+
+button{
+    padding: 6px;
+    color: #fff;
+    background: #000;
+    font-weight: 1000;
+    border: none;
+    cursor: pointer;
+    transition: opacity .2s;
+}
+
+button:hover{
+    opacity: .7;
+    outline: 2px solid #fff;
+}
+
+/* CONTENEDOR DE LOS BOTONES MODIFICADORES*/
+.container__buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.container__buttons button{
+    max-width: 200px;
+    flex-grow: 1;
+}
+
+/* CONTENEDOR DEL CONTENEDOR DE ENLACES Y RESPUESTAS */
+.container__enlaces-respuestas{
+    margin: 10px auto;
+    display: flex;
+
+}
+/* CONTENEDOR DE LOS ENLACES*/
+.container-enlaces {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center ;
+    gap: 5px;
+    background-color: #adf;
+
+}
+
+.container-enlaces a {
+    display: block;
+    margin: 5px 0;
+    color: #48f;
+    text-decoration: underline;
+}
+
+.container-enlaces a:hover{
+    color:#00f
+}
+
+/* CONTENEDOR DE LAS RESPUESTAS*/
+.container-resultados {
+    width: 80%;
+    background-color: #bf8;
+    padding-left: 7px;
+}
