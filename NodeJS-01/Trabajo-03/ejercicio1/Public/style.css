@@ -1,0 +1,80 @@
+/* MODIFICAMOS A TODOS LOS ELEMENTOS A TRATAR */
+body, div, main, button, h1, img{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* MODIFICAMOS AL BODY, LE AGREGAMOS FLEX PARA CENTRAR TODO EL CONTENIDO */
+body{
+    background: #224;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTENIDO PRINCIPAL*/
+.main{ 
+    background: #eee;
+    width: 80vw;
+    height: 80vh;
+    box-shadow: 0 0 10px #000;
+}
+
+/* CONTENEDOR DEL TITULO Y IMAGEN*/
+.container-main{
+    background-color: #eef;
+    height: 70%;
+    text-align: center;
+}
+
+/* TITULO Y IMAMGEN QUE APARECERAN AL TOCAR LOS BOTONES*/
+h1, img{
+    padding: 10px;
+    transition: color .4s, width .4s;
+    max-width: 100%;
+}
+
+/* CONTENEDOR DE LOS BOTONES*/
+.container-buttons{
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* CONTENEDORES DE LOS BOTONES POR SEPARADO*/
+.container-buttons-h1, .container-buttons-img{
+    height: 40%;
+    display: flex;
+    gap: 10px;
+}
+
+/* MODIFICACION DE LOS BOTONES */
+.button{
+    background-color: #e84;
+    color: #222;
+    width: 0;
+    flex-grow: 2;
+    cursor: pointer;
+    font-family: monospace;
+    border:0 solid transparent;
+    transition: flex-grow .4s;
+}
+
+/* DIFERENCIAMOS A LOS BOTONES DE LAS IMAGENES*/
+.container-buttons-img .button{
+    background-color: #8e4;
+}
+
+/* AL ACERCAR EL CURSOR SOBRE LOS BOTONES*/
+.button:hover{
+    opacity: .8;
+    flex-grow: 3;
+    outline: 2px solid #222;
+}
+
+/* AL PRESIONAR BOTONES*/
+.button:active{
+    opacity: .6;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- INICIO DEL BODY -->
+    <main class="main"> 
+        <!-- CONTENEDOR DE LOS ELEMNTOS A MODIFICAR -->
+        <div class="container-main">
+            <div id="container__h1"></div>
+            <div id="container__img"></div>
+        </div>
+            
+        <!-- CONTENEDOR DE LOS BOTONES -->
+        <div class="container-buttons">
+            <div class="container-buttons-h1">
+                <button onclick="agregarH1()" class="button">Agregar H1</button>
+                <button onclick="cambiarH1()" class="button">Cambiar H1</button>
+                <button onclick="colorH1()" class="button">Cambiar Color H1</button>
+            </div>
+            <div class="container-buttons-img">
+                <button onclick="agregarImagen()" class="button">Agregar Imagen</button>
+                <button onclick="cambiarImagen()" class="button">Cambiar Imagen</button>
+                <button onclick="cambiarTamanio()" class="button">Cambiar Tamaño Imagen</button>
+            </div>
+        </div>
+    </main>
+    <!-- LLAMADA AL SCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>
