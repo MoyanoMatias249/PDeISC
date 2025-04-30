@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+}
+
+/* CUERPO*/
+body{
+    background: #ddd;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTENIDO A MOSTRAR*/
+.main{
+    background: #fff;
+    width: 80%;
+    height: 70vh;
+    padding: 20px;
+}
+
+/* CONTENEDOR DE BOTONES*/
+.container-buttons{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+
+/* CADA BOTON */
+button{
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: color .4s, outline .4s;
+}
+
+button:hover{
+    outline: 1px solid #f00;
+    color: #f00;
+}
+
+/* CONTENIDO QUE SE MOSTRARA POR LOS BOTONES */
+.output{
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}
