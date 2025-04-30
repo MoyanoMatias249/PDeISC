@@ -1,0 +1,1 @@
+4- Generar un proyecto en express que muestre un index con botones que creen diferentes nodos (<a>) y otro que modifique los atributos de estos (si era un a href a google cambiarlo a otra dirección) Al menos 5 nodos, y que a la vez muestren por pantalla dinámicamente el atributo que están modificando y el cambio realizado.
