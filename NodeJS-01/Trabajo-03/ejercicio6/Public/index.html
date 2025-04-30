@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>EJERCICIO 6</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main class="main">
+        <h1>Formulario de Registro</h1>
+        <form id="formulario" class="form">
+            <label>Nombre: <input type="text" name="nombre" required></label><br>
+            <label>Edad: <input type="number" name="edad" required></label><br>
+            <label>Email: <input type="email" name="email" required></label><br>
+
+            <label>Sexo:</label>
+            <label><input type="radio" name="sexo" value="Masculino">Masculino</label>
+            <label><input type="radio" name="sexo" value="Femenino">Femenino</label><br>
+
+            <label>País:
+                <select name="pais">
+                    <option value="Argentina">Argentina</option>
+                    <option value="México">México</option>
+                    <option value="España">España</option>
+                </select>
+            </label><br>
+
+            <label>
+                Acepto términos y condiciones<input type="checkbox" name="acepta" required>
+            </label><br>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+    
+    <section class="resultado" id="resultado" ></section>
+
+    <script src="/script.js"></script>
+</body>
+</html>

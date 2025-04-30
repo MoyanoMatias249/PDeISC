@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    background: #ddd;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+h1{
+    margin: 0 0 10px 0;
+}
+.main, .resultado{
+    margin: 10px 0;
+    max-width: 500px;
+    width: 50%;
+    padding: 20px;
+}
+
+.main{
+    background-color: #aaf;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+input, select, button{
+    width: 100%;
+    background-color: #ccf;
+    border: none;
+    border-left: 2px solid #000;
+    height: 30px;
+    padding: 5px;
+    transition: background-color .4s;
+}
+
+input:focus{
+    outline: none;
+    background-color: #fff;
+}
+input[type="email"]:invalid{
+    color:#f48; 
+}
+
+input[type="radio"],input[type="checkbox"]{
+    width: 10px;
+    height: 10px;
+    padding: 0;
+}
