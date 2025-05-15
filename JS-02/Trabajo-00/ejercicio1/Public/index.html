@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="form-box">
+            <h1>Formulario</h1>
+
+            <!-- Formulario para enviar datos -->
+            <form id="formulario">
+                <label>
+                    <p>Usuario</p>
+                    <input type="text" name="user" placeholder="Nombre de usuario" required>
+                </label>
+
+                <label>
+                    <p>Email</p>
+                    <input type="email" name="mail" placeholder="Direccion de email" required>
+                </label>
+
+                <label>
+                    <p>Contraseña</p>
+                    <input type="password" name="pass" placeholder="Contraseña" required>
+                </label>
+
+                <label>
+                    <p>Enviar datos</p>
+                    <button type="submit">Guardar</button>
+                </label>
+            </form>
+        </div>
+
+        <!-- Lista de usuarios cargados -->
+        <div class="list-box">
+                <h2>Usuarios cargados:</h2>
+            <div id="lista-usuarios">
+                <ul id="usuarios-ul"></ul>
+            </div>
+        </div>
+
+        
+        <script src="script.js"></script>
+    </body>
+</html>
