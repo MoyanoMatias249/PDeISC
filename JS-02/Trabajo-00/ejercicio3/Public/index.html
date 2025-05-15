@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>Formulario de Registro de Personas</title>
+
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="form-box">
+            <h1>Formulario de Registro</h1>
+
+            <!-- Formulario para enviar datos -->
+            <form id="persona-form">
+                <label>
+                    <p>Nombre</p>
+                    <input type="text" name="nombre" placeholder="Nombre" required >
+                </label>
+
+                <label>
+                    <p>Apellido</p>
+                    <input type="text" name="apellido" placeholder="Apellido" required >
+                </label>
+
+                <label>
+                    <p>Edad</p>
+                    <input type="number" name="edad" min="0" max="100" placeholder="Edad" required >
+                </label>
+
+                <label>
+                    <p>Fecha de Nacimiento</p>
+                    <input type="date" name="nacimiento" required >
+                </label>
+
+                <label>
+                    <p>Sexo</p>
+                    <select name="sexo" required >
+                        <option value="">Seleccionar</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
+                </label>
+
+                <label>
+                    <p>Documento</p>
+                    <input type="text" name="documento" required pattern="\d{6,10}" placeholder="Numero de documento">
+                </label>
+
+                <label>
+                    <p>Estado Civil</p>
+                    <input type="text" name="estadoCivil" list="referente" placeholder="Estado Civil" required>
+                    <datalist id="referente">
+                        <option value="">Seleccionar</option>
+                        <option value="Soltero">Soltero</option>
+                        <option value="Casado">Casado</option>
+                        <option value="Divorciado">Divorciado</option>
+                        <option value="Viudo">Viudo</option>
+                    </datalist>
+                </label>
+
+                <label>
+                    <p>Nacionalidad</p>
+                    <input type="text" name="nacionalidad" placeholder="Nacionalidad" required>
+                </label>
+
+                <label>
+                    <p>Teléfono</p>
+                    <input type="tel" name="telefono" placeholder="Numero de Telefono" pattern="[0-9]{7,15}" required >
+                </label>
+                <label>
+                    <p>Email</p>
+                    <input type="email" name="email" placeholder="Correo de mail" required>
+                </label>
+
+                <label>
+                    <p>¿Tiene Hijos?</p>
+                    <select name="hijos" id="hijos" required>
+                        <option value="">Seleccionar</option>
+                        <option value="No">No</option>
+                        <option value="Sí">Sí</option>
+                    </select>
+                </label>
+
+                <label id="cantidadHijosLabel" style="display :none" required >
+                    <p>¿Cuántos hijos?</p>
+                    <input type="number" name="cantidadHijos" placeholder="Cantidad de hijos" min="1" max="20">
+                </label>
+
+                <button type="submit">Guardar</button>
+            </form>
+            <!-- MENSAJE DE VERIFICACION -->
+            <div id="mensaje"></div>
+        </div>
+
+        <!-- Lista de pesonas cargados -->
+        <div class="list-box">
+            <h2>Lista de Personas</h2>
+            <ul id="persona-list"></ul>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

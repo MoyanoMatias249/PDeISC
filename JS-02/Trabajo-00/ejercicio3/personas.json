@@ -1,0 +1,44 @@
+[
+  {
+    "nombre": "Matias",
+    "apellido": "Moyano",
+    "edad": "18",
+    "nacimiento": "2006-12-13",
+    "sexo": "Masculino",
+    "documento": "47690295",
+    "estadoCivil": "Soltero",
+    "nacionalidad": "Argentina",
+    "telefono": "2236034696",
+    "email": "moyanomatias@gmai.com",
+    "hijos": "No",
+    "cantidadHijos": 0
+  },
+  {
+    "nombre": "Matias",
+    "apellido": "Moyano",
+    "edad": "18",
+    "nacimiento": "2006-12-13",
+    "sexo": "Masculino",
+    "documento": "47690295",
+    "estadoCivil": "Soltero",
+    "nacionalidad": "Argentina",
+    "telefono": "2236034696",
+    "email": "moyanomatias@gmai.com",
+    "hijos": "No",
+    "cantidadHijos": 0
+  },
+  {
+    "nombre": "3123",
+    "apellido": "123123",
+    "edad": "18",
+    "nacimiento": "2006-12-13",
+    "sexo": "Masculino",
+    "documento": "47690295",
+    "estadoCivil": "Soltero",
+    "nacionalidad": "Argentina",
+    "telefono": "2236034696",
+    "email": "moyanomatias@gmai.com",
+    "hijos": "No",
+    "cantidadHijos": 0
+  }
+]
