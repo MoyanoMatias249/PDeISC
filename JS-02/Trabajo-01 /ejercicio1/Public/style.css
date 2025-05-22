@@ -1,0 +1,202 @@
+*{
+    box-sizing: border-box
+}
+/* CUERPO DE LA PAGINA*/
+body{
+    background-color: #444;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    font-family: "Montserrat";
+    min-height: 100vh;
+    margin: 0;
+}
+/* TITULO PRINCIPAL Y PIE DE PAGINA */
+h1, footer{
+    background-color: #222;
+    color: #fff;
+    margin: 0;
+    padding: 0; 
+    width: 100%;
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0 0 1px #000);
+}
+
+/* ---- CONTENEDOR DE CAJAS Y LISTAS ----- */
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+/* TANTO LAS CAJAS COMO LAS LISTAS*/
+.form-box, .list-box{
+    padding: 0 3em 3em 3em;
+    width: min(100%, 38em);
+    min-height: 20em;
+    filter: drop-shadow(0 0 .5em #000);
+}
+/* ---- FORMULARIO  ---- */
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+/* CADA ITEM DEL FORMULARIO*/
+label{
+    flex-grow: 1;
+}
+/* TEXTO DENTRO DE ITEM DEL FORMULARIO*/
+label p{
+    margin: 0;
+    margin-bottom: 0.2em;
+    font-size: 1.2em;
+}
+
+/* BOTONES e INPUTS */
+label button, label input{
+    width: 100%;
+    height: 3em;
+    padding: 0 0.6em;
+    font-size: 1em;
+    border-radius: 0 0 1em 0;
+    border: none;
+    border-left: .2em solid #555;
+    transition: border .1s, background-color .2s;
+}
+/* BOTON DEL FORMULARIO */
+label button{
+    color: #fff;
+}
+/* INPUT DEL FORMULARIO */
+label input{
+    background-color: #eee;
+    color: #000;
+}
+/* AL CLICKEAR INPUT*/
+label input:focus{
+    outline: none;
+    background-color: #fff;
+}
+/* TEXTO DENTRO DEL INPUT*/
+label input::placeholder{
+    color: #222;
+    font-family: inherit;
+}
+/* AL ACERCAR EL CURSOR EN EL INPUT Y EN EL BOTON*/
+:is(button,input):hover{
+    border-left: .4em solid #222;
+}
+
+/* ---- LISTAS ----*/
+.list-box{
+    position: relative;
+}
+.list-box div:last-child{
+    position: absolute;
+    bottom: 10%;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 1.5em;
+    margin: 0;
+    color: #222;
+    font-weight: 500;
+}
+
+li {
+    font-size: 1.2em;
+    margin-bottom: 0.2em;
+}
+
+
+
+/* ---- FORMULARIO 1: FRUTAS ---*/
+.form-1, .list-1{
+    background-color: #ada; 
+}
+.form-1 button{
+    background-color: #4c4;
+}
+.form-1 button:hover{
+    background-color: #6c6;
+    border-color: #464;
+}
+.form-1 input:hover{
+    border-color: #464;
+}
+
+/* ---- FORMULARIO 2: AMIGOS ---*/
+.form-2, .list-2{
+    background-color: #aad; 
+}
+
+.form-2 button{
+    background-color: #44c;
+}
+.form-2 button:hover{
+    background-color: #66c;
+    border-color: #446;
+}
+.form-2 input:hover{
+    border-color: #446;
+}
+
+/* ---- FORMULARIO 3: NUMEROS ---*/
+.form-3, .list-3{
+    background-color: #daa; 
+}
+
+.form-3 button{
+    background-color: #c44;
+}
+.form-3 button:hover{
+    background-color: #c66;
+    border-color: #644;
+}
+.form-3 input:hover{
+    border-color: #644;
+}
+
+.list-3 ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+}
+
+.list-3 li {
+    color: #222;
+    white-space: nowrap;
+}
+
+
+/* FUENTE */
+.montserrat-<uniquifier> {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+/* MEDIA QUERIES*/
+@media screen and (max-width: 900px) {
+    .container{
+        flex-wrap: wrap;
+    }
+
+    .list-box{
+        min-height: auto;
+    }
+}
