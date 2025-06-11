@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Piedra, Papel o Tijera</title>
+
+        <!-- FUENTE DE GOOGLE -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="contenedor-info">
+            <!-- FORMULARIO -->
+            <form id="form" class="contenedor-formulario">
+                <h2 id="form-text"></h2>
+
+                <select class="form-select" id="modo-de-juego">
+                    <option value="2">2 Jugadores</option>
+                    <option value="1">1 Jugador</option>
+                </select>
+                
+                <!-- BOTON SUBMIT -->
+                <button class="form-boton" type="submit" id="form-boton">Enviar</button>
+
+                <!-- BOTON REINCIAR -->
+                <button id="reiniciar" type="button" onclick="reiniciar()" class="boton-reiniciar form-disabled">Reiniciar Partida</button>
+
+            </form>
+            <!-- MENSAJE -->
+            <div class="contenedor-msg">
+                <p class="msg" id="msg"></p>
+            </div>
+        </div>
+
+        <!-- BOTONES DE PIEDRA PALPEL O TIJERA-->
+        <div class="contenedor-juego">
+            <!-- JUGADOR 1 -->
+            <div class="contenedor-botones botones-jugador1"> 
+                <button id="jugador1-boton1" class="boton boton-j1 boton-desactivado"><p>A</p></button>
+                <button id="jugador1-boton2" class="boton boton-j1 boton-desactivado"><p>S</p></button>
+                <button id="jugador1-boton3" class="boton boton-j1 boton-desactivado"><p>D</p></button>
+            </div>
+            <!-- JUGADOR 2 -->
+            <div class="contenedor-botones botones-jugador2"> 
+                <button id="jugador2-boton1" class="boton boton-j2 boton-desactivado"><p>K</p></button>
+                <button id="jugador2-boton2" class="boton boton-j2 boton-desactivado"><p>L</p></button>
+                <button id="jugador2-boton3" class="boton boton-j2 boton-desactivado"><p>Ñ</p></button>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

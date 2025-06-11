@@ -1,0 +1,203 @@
+/* Todos los elementos*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* Cuerpo de la pagina*/
+body{
+    background-color: #222;
+    font-family: "Montserrat", sans-serif;
+    min-height: 100dvh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2em;
+}
+/* Contenedor del formulario y del mensajes*/
+.contenedor-info{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 25em;
+}
+/* ------------ FORMULARIO ------------*/
+/* Contenedor propio del formulario */
+.contenedor-formulario{
+    background-color: transparent;
+    border: .2em solid #eee;
+    color: #eee;
+    min-height: 9em;
+    width: inherit;
+    max-width: inherit;
+    border-radius: 2em 2em 0 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: .5em;
+    flex-direction: column;
+}
+/* Contenedor del formulario y del mensajes*/
+.contenedor-formulario h2{
+    font-size: 1.2em;
+}
+/* Boton submit y select del formulario*/
+.form-boton, .form-select{
+    background-color: #eee;
+    color: #222;
+    width: 100%;
+    max-width: 20em;
+    height: 2.5em;
+    font-family: inherit;
+    font-weight: bolder;
+    text-align: center;
+    border: none;
+    transition:  filter .3s;
+}
+/* Clase para desactivar opciones del formulario (Se activara con JS)*/
+.form-disabled{
+    display: none;
+}
+/* Cuando se hacerca el cursor al boton y al select */
+.form-boton:hover, .form-select:hover{
+    outline: 0.2em solid #eee;
+    filter: drop-shadow(0 0 .7em #62e);
+}
+/* Cuando se cliquea el select*/
+.form-select:focus{
+    outline: none;
+}
+/* Boton Reinciar (Se activa al apretar enviar) */
+.boton-reiniciar{
+    background-color: #222;
+    color: #eee;
+    width: 20em;
+    max-width: 20em;
+    height: 2.5em;
+    font-family: inherit;
+    font-weight: bolder;
+    text-align: center;
+    border: none;
+    outline: 0.1em solid transparent;
+    transition:  filter .3s,outline .2s;
+}
+/* Cuando se hacerca el cursor a ambos botones y al select */
+.form-boton:hover, .form-select:hover, .boton-reiniciar:hover{
+    filter: drop-shadow(0 0 .7em #62e);
+}
+/* Contenedor propio del mensaje*/
+.contenedor-msg{
+    width: inherit;
+    max-width: inherit;
+    min-height: 4em;
+    background-color: #888;
+    border-radius: 0 0 2em 2em;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border: .2em solid #eee;
+}
+/* ------------ PIEDRA PAPEL TIJERA ------------*/
+/* Contedor principal del juego */
+.contenedor-juego{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+/* Contenedor de botones de cada jugador*/
+.contenedor-botones{
+    width: 100%;
+    min-height: 10em;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    max-width: 20em;
+}
+/* TODOS LOS BOTONES DE AMBOS JUGADORES*/
+.boton{
+    width: 100%;
+    max-width: 10em;
+    height: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-weight: bold;
+    border-radius: 50%;
+    border: .3em solid #eee5;
+    filter: drop-shadow(0 0 5px #fff);
+    transition: border .2s, filter .5s;
+}
+/* Texto dentro de cada boton (Dice la letra que se debe ingresar) */
+.boton p{
+    font-size: 1.5em;
+    color: #eee;
+    height: 1.5em;
+    width: 1.5em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .2s, color .2s;
+}
+/* Al acercar cursor en algun boton del jugador 1 cuando pueda elguir (JS)*/
+.boton-activado-j1:hover{
+    border: .3em solid #eee;
+    filter: drop-shadow(0 0 1.3em #22f);
+}
+/* Al acercar cursor en algun boton del jugador 1 cuando pueda elguir (JS)*/
+.boton-activado-j2:hover{
+    border: .3em solid #eee;
+    filter: drop-shadow(0 0 1.3em #f22);
+}
+/* Cuando el boton este desactivado*/
+.boton-desactivado{
+    filter: grayscale(1);
+}
+/* Al acercar cursor al texto de los botones del jugador 1*/
+.boton-j1 p:hover{
+    background-color: #eee;
+    color: #66f;
+}
+/* Al acercar cursor al texto de los botones del jugador 2*/
+.boton-j2 p:hover{
+    background-color: #eee;
+    color: #f66;
+}
+/* BOTON PIEDRA JUGADOR 1*/
+.boton-j1:nth-child(1){
+    background: url("imgs/piedra.png") #55f no-repeat center;
+    background-size: 8em;
+}
+/* BOTON PAPEL JUGADOR 1*/
+.boton-j1:nth-child(2){
+    background: url("imgs/papel.png") #55f no-repeat center;;
+    background-size: 8em;
+}
+/* BOTON TIJERA JUGADOR 1*/
+.boton-j1:nth-child(3){
+    background: url("imgs/tijeras.png") #55f no-repeat center;;
+    background-size: 8em;
+}
+
+/* BOTON PIEDRA JUGADOR 1*/
+.boton-j2:nth-child(1){
+    background: url("imgs/piedra.png") #f55 no-repeat center;
+    background-size: 8em;
+}
+/* BOTON PAPEL JUGADOR 1*/
+.boton-j2:nth-child(2){
+    background: url("imgs/papel.png") #f55 no-repeat center;;
+    background-size: 8em;
+}
+/* BOTON TIJERA JUGADOR 1*/
+.boton-j2:nth-child(3){
+    background: url("imgs/tijeras.png") #f55 no-repeat center;;
+    background-size: 8em;
+}
