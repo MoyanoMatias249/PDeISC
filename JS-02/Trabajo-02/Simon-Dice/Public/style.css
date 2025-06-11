@@ -1,0 +1,195 @@
+/* Todos los elementos*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* Cuerpo de la pagina*/
+body{
+    background: linear-gradient(to left, #000, #222);
+    font-family: "Montserrat", sans-serif;
+    min-height: 100dvh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2em;
+}
+/* Contenedor del formulario y del mensajes*/
+.contenedor-info{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 20em;
+}
+
+/* ------------ FORMULARIO ------------*/
+/* Contenedor propio del formulario */
+.contenedor-formulario{
+    background-color: #222;
+    border: .2em solid #eee;
+    color: #eee;
+    min-height: 7em;
+    width: inherit;
+    max-width: inherit;
+    border-radius: 2em 2em 0 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: .5em;
+    flex-direction: column;
+}
+/* Texto del formulario */
+.contenedor-formulario h2{
+    font-size: 1.2em;
+}
+/* Boton submit y select del formulario*/
+.form-boton, .boton-reiniciar{
+    background-color: #eee;
+    color: #222;
+    width: min(100%, 20em);
+    height: 2.5em;
+    font-family: inherit;
+    font-weight: bolder;
+    text-align: center;
+    border: none;
+    transition:  filter .3s;
+}
+/* Clase para desactivar opciones del formulario (Se activara con JS)*/
+.form-disabled{
+    display: none;
+}
+/* Cuando se hacerca el cursor al boton y al select */
+.form-boton:hover{
+    outline: 0.2em solid #eee;
+    filter: drop-shadow(0 0 .7em #62e);
+}
+/* Cuando se cliquea el select*/
+.form-select:focus{
+    outline: none;
+}
+/* Boton Reinciar (Se activa al apretar enviar) */
+.boton-reiniciar{
+    background-color: #222;
+    color: #eee;
+}
+/* Cuando se hacerca el cursor al boton*/
+.form-boton:hover, .boton-reiniciar:hover{
+    filter: drop-shadow(0 0 .7em #62e);
+}
+/* Contenedor propio del mensaje*/
+.contenedor-msg{
+    width: inherit;
+    max-width: inherit;
+    min-height: 4em;
+    background-color: #888;
+    border-radius: 0 0 2em 2em;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border: .2em solid #eee;
+}
+/* ------------ SIMON DICE  ------------*/
+/* Contedor principal del juego */
+.contenedor-juego{
+    width: 20em;
+    height: 20em;
+    background-color: #000;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: .5em;
+    border-radius: 100%;
+    position: relative;
+    filter: drop-shadow(0 0 .4em #000);
+}
+/* CADA BOTON */
+.boton{
+    background-color: #222;
+    transition: filter .2s, background-color .1s, border .1s;
+    border: none;
+}
+/* ACERCAR CURSOR A CADA BOTON (SE ACTIVA CON JS) */
+.boton-eleguir:hover{
+    border: .2em solid #eee;
+}
+/* Boton verde*/
+.boton:nth-child(1){
+    background-color: #4b4;
+    border-radius: 100% 0 0 0;
+}
+/* Boton verde, acercar cursor (SE ACTIVA CON JS) */
+.boton-eleguir:nth-child(1):hover{
+    filter: drop-shadow(0 0 .5em #0f0);
+}
+/* Boton verde, hacer click (SE ACTIVA CON JS) */
+.boton-eleguir:nth-child(1):active{
+    background-color: #6f6;
+}
+
+/* Boton rojo*/
+.boton:nth-child(2){
+    background-color: #b42;
+    border-radius: 0 100% 0 0;
+}
+/* Boton rojo, acercar cursor (SE ACTIVA CON JS) */
+.boton-eleguir:nth-child(2):hover{
+    filter: drop-shadow(0 0 .5em #f00);
+}
+/* Boton rojo, hacer click (SE ACTIVA CON JS) */
+.boton-eleguir:nth-child(2):active{
+    background-color: #f66;
+}
+
+/* Boton amarillo*/
+.boton:nth-child(3){
+    background-color: #ed0;
+    border-radius: 0 0 0 100%;
+}
+/* Boton amarillo, acercar cursor (SE ACTIVA CON JS) */
+.boton-eleguir:nth-child(3):hover{
+    filter: drop-shadow(0 0 .5em #fe0);
+}
+/* Boton amarillo, hacer click (SE ACTIVA CON JS) */
+.boton-eleguir:nth-child(3):active{
+    background-color: #ff5;
+}
+
+/* Boton azul*/
+.boton:nth-child(4){
+    background-color: #24b;
+    border-radius: 0 0 100% 0;
+}
+/* Boton azul, acercar cursor (SE ACTIVA CON JS) */
+.boton-eleguir:nth-child(4):hover{
+    filter: drop-shadow(0 0 .5em #00f);
+}
+/* Boton azul, hacer click (SE ACTIVA CON JS) */
+.boton-eleguir:nth-child(4):active{
+    background-color: #66f;
+}
+
+/* Boton verde cuando la maquina muestre su eleccion*/
+.boton-1{
+    border: .2em solid #eee;
+    filter: drop-shadow(0 0 1em #0f0);
+}
+/* Boton rojo cuando la maquina muestre su eleccion*/
+.boton-2{
+    border: .2em solid #eee;
+    filter: drop-shadow(0 0 1em #f00);
+}
+/* Boton amarillo cuando la maquina muestre su eleccion*/
+.boton-3{
+    border: .2em solid #eee;
+    filter: drop-shadow(0 0 1em #fe0);
+}
+/* Boton azul cuando la maquina muestre su eleccion*/
+.boton-4{
+    border: .2em solid #eee;
+    filter: drop-shadow(0 0 1em #00f);
+}
