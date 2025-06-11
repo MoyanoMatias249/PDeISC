@@ -1,0 +1,165 @@
+/* Todos los elementos*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* Cuerpo de la pagina*/
+body{
+    background-color: #444;
+    font-family: "Montserrat", sans-serif;
+    height: 100dvh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+/* Contenedor del formulario y del mensajes*/
+.contenedor-info{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 25em;
+}
+/* ------------ FORMULARIO ------------*/
+/* Contenedor propio del formulario */
+.contenedor-formulario{
+    background-color: #eee;
+    box-shadow: 0 0 4em 2em #222;
+    min-height: 9em;
+    width: inherit; /* Hereda propiedad del padre */
+    max-width: inherit;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+    flex-direction: column;
+}
+/* Texto del formulario */
+.contenedor-formulario h2{
+    font-size: 1.2em;
+}
+/* Boton submit y select del formulario*/
+.form-boton, .form-select{
+    background-color: #222;
+    color: #eee;
+    width: 100%;
+    max-width: 20em ;
+    height: 2.5em;
+    font-family: inherit;
+    font-weight: bolder;
+    text-align: center;
+    border: none;
+}
+/* Clase para desactivar opciones del formulario (Se activara con JS)*/
+.form-disabled{
+    display: none;
+}
+/* Cuando se hacerca el cursor al boton y al select */
+.form-boton:hover, .form-select:hover{
+    outline: 0.2em solid #f22;
+}
+
+/* Contenedor propio del mensaje*/
+.contenedor-msg{
+    width: inherit; /* Hereda del padre */
+    max-width: inherit;
+    min-height: 4em;
+    background-color: #888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* ------------ CASILLAS TATETI ------------ */
+/* Contenedor de casillas*/
+.contenedor-botones{
+    width: 100%;
+    max-width: 25em;
+    height: 25em;
+
+    display: grid; /* Tres columnas y ters filas*/
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+/* Clase de iconos de google (solo para aumentale el tamaño)*/
+.material-symbols-outlined {
+    font-size: 2em !important; /* Lo toma como propiedad */
+}
+/* Cada casilla*/
+.boton{
+    background-color: #eee;
+    border: .2em solid #222;
+}
+/* Ambos tipos de botones del TATETI */
+.boton, .boton-reiniciar{
+    transition: background-color .2s, border .2s;
+}
+/* Clase acercar cursor a casilla (Se activa con JS) */
+.boton-rojo:hover {
+    border: .2em solid #f22;
+    background-color: #fee;
+}
+/* Clase al cliquear casillasa vacias (Se activa con JS)*/
+.boton-verde:active {
+    border: .2em solid #2f2;
+    background-color: #efe;
+}
+/* Clase casillas ganadoras (Se activa con JS)*/
+.boton-azul {
+    border: .2em solid #22f;
+    background-color: #eef;
+}
+/* Otra opcion
+.boton-azul {
+    border: .2em solid #eef;
+    background-color: #22f;
+    color: #eee;
+} */
+/* Boton para reiniciar juego */
+.boton-reiniciar{
+   grid-area: 4 / span 3;
+   height: 2em;
+   background-color: #222;
+   border: none;
+   color: #eee;
+   font-family: inherit;
+}
+/* acercar cursor a reiniciar*/
+.boton-reiniciar:hover{
+    background-color: #444;
+    border: .1em solid #eee;
+}
+/* Clase cambiar estilo de boton al finalizar partida (Se activa con JS)*/
+.boton-terminar{
+   background-color: #eef;
+   color: #22f;
+   border: .1em solid #22f;
+}
+/* Clase cambiar estilo de boton al acercar cursor luego de finalizar partida (Se activa con JS)*/
+.boton-terminar:hover{
+   background-color: #22f;
+   color: #eef;
+   border: .1em solid #eef;
+}
+/* Media queries, Se activan cuando la pantalla mida menos de 50em de ancho */
+@media screen and (max-width: 50em) {
+    body{
+        flex-direction: column;
+        gap: 1.2em;
+    }
+
+    .contenedor-botones{
+        max-width: 20em;
+        height: 20em;
+    }
+}
+/* Media queries, Se activan cuando la pantalla mida menos de 20em de ancho*/
+@media screen and (max-width: 20em) {
+    .contenedor-botones{
+        max-width: 15em;
+        height: 15em;
+    }
+}

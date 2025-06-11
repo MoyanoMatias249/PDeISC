@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>TaTeTi</title>
+
+        <!-- FUENTE DE GOOGLE -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <!-- ICONOS DE GOOGLE-->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="contenedor-info">
+            <!-- FORMULARIO -->
+            <form id="form" class="contenedor-formulario">
+                <h2 id="form-text"></h2>
+
+                <select class="form-select" id="modo-de-juego">
+                    <option value="2">2 Jugadores</option>
+                    <option value="1">1 Jugador</option>
+                </select>
+                
+                <button class="form-boton" type="submit" id="form-boton">Enviar</button>
+            </form>
+            <!-- MENSAJE -->
+            <div class="contenedor-msg">
+                <p class="msg" id="msg"></p>
+            </div>
+        </div>
+        <!-- CASILLAS TATETI-->
+        <div class="contenedor-botones">
+            <button id="b1" class="boton material-symbols-outlined"></button>
+            <button id="b2" class="boton material-symbols-outlined"></button>
+            <button id="b3" class="boton material-symbols-outlined"></button>
+            <button id="b4" class="boton material-symbols-outlined"></button>
+            <button id="b5" class="boton material-symbols-outlined"></button>
+            <button id="b6" class="boton material-symbols-outlined"></button>
+            <button id="b7" class="boton material-symbols-outlined"></button>
+            <button id="b8" class="boton material-symbols-outlined"></button>
+            <button id="b9" class="boton material-symbols-outlined"></button>
+            <!-- BOTON REINICIAR -->
+            <button id="reiniciar" class="boton-reiniciar" onclick="reiniciar()">Reiniciar Partida</button>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
