@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trabajo 3 JS </title>
+        <link rel="stylesheet" href="style.css">
+
+        <!-- FUENTE DE GOOGLE -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <form id="formulario">
+            <label>
+                <p>Ingrese un número:</p>
+                <input type="number" id="numero-input" placeholder="Numeros" required />
+            </label>
+
+            <button type="submit">Agregar Número</button>
+            <button type="button" id="guardar-archivo" disabled>Guardar como .txt</button>
+        </form>
+
+        <p id="contador">Números cargados: 0</p>
+        <div class="contenedor-lista">
+            <p>Lista Numeros</p>
+            <ul id="lista-numeros">
+
+            </ul></div>
+        
+        <p class="mensaje" id="mensaje"></p>
+
+    <script src="script.js"></script>
+    </body>
+</html>
