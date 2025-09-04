@@ -1,0 +1,125 @@
+.inicio{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 3em 0;
+}
+
+.inicio-titulo{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  background-color: var(--rojo-dark);
+  filter: drop-shadow(0 0 .2em var(--rojo-light));
+  
+  box-sizing: border-box;
+}
+
+.inicio-titulo button{
+  height: fit-content;
+  background-color: var(--rojo-dark);
+}
+
+.inicio-titulo button:hover{
+    background-color: var(--rojo-hover);
+    border-color: var(--rojo-border);
+}
+
+
+.tabla-transpuesta {
+  width: 90%;
+  max-width: 75em;
+  overflow-x: auto;
+  padding: 1em;
+}
+
+.tabla-scroll {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  align-items: flex-start;
+  background-color: var(--rojo-light);
+  filter: drop-shadow(0 0 .2em var(--rojo-light));
+}
+
+.columna-atributos {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  background-color: #555;
+  border-right: 2px solid #ccc;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+.contenedor-usuarios {
+  display: flex;
+  flex-direction: row;
+}
+
+.columna-usuario {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  background-color: #222;
+  border: 1px solid #ccc;
+}
+
+.celda {
+  padding: 0.7em;
+  border-bottom: 1px solid var(--rojo-fluor );
+  text-align: left;
+  width: 16em; 
+  box-sizing: border-box;
+  min-height: 3.5em; 
+  color: var(--bg-dark);
+  background-color: var(--rojo-border);
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: .9em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.atributo {
+  font-weight: bold;
+  background-color: #222;
+  border-bottom: 1px solid var(--bg-light);
+  width: 100%;
+  max-width: 7em;
+  min-height: 3.5em; /* altura uniforme para todas las celdas */
+  color: var(--bg-light);
+  background-color: var(--rojo-dark);
+  justify-content: center;
+}
+
+.acciones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5em;
+}
+
+.acciones button {
+  padding: 0.4em 0.6em;
+  font-size: 0.9em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--bg-dark);
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.acciones button:first-child:hover {
+  background-color: var(--azul-hover);
+}
+
+.acciones button:last-child:hover {
+  background-color: var(--rojo-fluor);
+}

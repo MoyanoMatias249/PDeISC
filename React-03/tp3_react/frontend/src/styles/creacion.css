@@ -1,0 +1,51 @@
+.creacion{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 3em 0;
+    min-height: 30em;
+    gap: 1em;
+}
+
+.creacion-titulo{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  background-color: var(--verde-dark);
+  filter: drop-shadow(0 0 .2em var(--verde-light));
+  
+  box-sizing: border-box;
+}
+
+
+.creacion-titulo button{
+  height: fit-content;
+  background-color: var(--verde-fluor);
+}
+
+.creacion-titulo button:hover{
+    background-color: var(--verde-hover);
+    border-color: var(--verde-border);
+}
+
+.creacion .formulario{
+    background-color: var(--verde-fluor);
+}
+
+
+.creacion .campo input {
+    border-color: var(--verde-dark);
+    background-color: var(--verde-border);
+    color: var(--bg-dark);
+}
+
+.creacion .formulario button{
+    background-color: var(--verde-fluor);
+}
+
+
+.creacion .formulario button:hover{
+    background-color: var(--verde-light);
+    border-color: var(--verde-border);
+}

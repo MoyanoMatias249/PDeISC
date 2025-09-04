@@ -1,0 +1,36 @@
+:root{
+    --bg-dark: #333;
+    --bg-light: #fff;
+
+    --rojo-dark: #9d150f;
+    --rojo-fluor: #ef2607;
+    --rojo-hover:#fe4011;
+    --rojo-light: #ff9c71;
+    --rojo-message: #ffc5a8;
+    --rojo-border:#ffe4d4;
+
+    --azul-dark: #252841;
+    --azul-fluor: #48508b;
+    --azul-hover:#5c68c0;
+    --azul-light: #8091d4;
+    --azul-message: #b7c9ea;
+    --azul-border:#d2dff3;
+
+    --verde-dark: #2c4522;
+    --verde-fluor: #4a822e;
+    --verde-hover:#63a43e;
+    --verde-light: #a2d383;
+    --verde-message: #c6e5b1;
+    --verde-border:#e1f1d6;
+/* 
+    --verde-bg: #46a14b;
+    --verde-hover: #66bb6a;
+    --verde-btn: #358439;
+    --verde-message: #9dd89f;
+    --verde-border: #e3f5e3;
+
+    --naranja-bg: #f98007;
+    --naranja-hover: #ffa726;
+    --naranja-btn: #dd5b02;
+    --naranja-border: #fff8eb; */
+}
