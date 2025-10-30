@@ -28,6 +28,7 @@ async function obtenerOcrearIngrediente(client, nombreOriginal) {
 
 // Obtener todas las recetas aprobadas para mostrar en la búsqueda general
 export async function listRecipes(req, res) {
+  const id_usuario = req.user?.id_usuario || req.user?.id || 0;
   try {
     const result = await pool.query(
       `SELECT r.*, u.nombre AS autor,
@@ -283,6 +284,7 @@ export const searchRecipesByName = async (req, res) => {
 
 // Filtrar recetas que coincidan exactamente con los ingredientes seleccionados
 export const filterRecipesByIngredients = async (req, res) => {
+  const id_usuario = req.user?.id_usuario || req.user?.id || 0;
   const { ingredientes } = req.body;
 
   if (!Array.isArray(ingredientes) || ingredientes.length === 0) {
@@ -421,6 +423,7 @@ export const getRecetasDelUsuario = async (req, res) => {
     res.status(500).json({ error: 'Error al obtener tus recetas' });
   }
 };
+
 
 
 
