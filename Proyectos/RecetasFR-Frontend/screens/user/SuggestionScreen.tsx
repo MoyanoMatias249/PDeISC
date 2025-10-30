@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     padding: 10,
     borderRadius: 8,
-    marginVertical: 10
+    marginVertical: 10,
   },
   mensaje: {
     marginTop: 10,

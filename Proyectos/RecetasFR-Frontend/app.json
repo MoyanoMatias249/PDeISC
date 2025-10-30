@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "recetasft",
-    "slug": "recetasft",
+    "name": "recetasfr",
+    "slug": "recetasfr",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,7 +25,7 @@
             {
               "scheme": "https",
               "host": "auth.expo.io",
-              "pathPrefix": "/@moyas249/recetasft"
+              "pathPrefix": "/@moyas249/recetasfr"
             }
           ],
           "category": ["BROWSABLE", "DEFAULT"]

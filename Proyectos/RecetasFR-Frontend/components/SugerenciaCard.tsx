@@ -61,11 +61,16 @@ export default function SugerenciaCard({
       styles[sugerencia.estado],
       esAutorAdmin && styles.adminCard
     ]}>
-      <Text style={styles.autor}>
-        {esAutorAdmin && <Text style={styles.adminBadge}>ADMIN</Text>}
-        {sugerencia.nombre} ({sugerencia.rol}) dijo:
+    <View style={styles.autorWrapper}>
+      {esAutorAdmin && (
+        <View style={styles.adminBadgeWrapper}>
+          <Text style={styles.adminBadge}>ADMIN</Text>
+        </View>
+      )}
+     <Text style={styles.autor}>
+        {sugerencia.nombre} dijo:
       </Text>
-
+    </View>
       {estaEditando ? (
         <TextInput
           value={nuevoContenido}
@@ -142,10 +147,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: Colors.gray100
   },
-  autor: {
-    fontWeight: '600',
-    marginBottom: 4,
-    color: Colors.gray800
+  autorWrapper: {
+    position: 'relative',
+    paddingRight: 60 // espacio para que el badge no se superponga
+  },
+  adminBadgeWrapper: {
+    position: 'absolute',
+    top: 0,
+    right: 0
   },
   adminBadge: {
     backgroundColor: Colors.green800,
@@ -153,8 +162,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
     paddingVertical: 2,
     borderRadius: 4,
-    fontSize: 12,
-    marginRight: 6
+    fontSize: 12
+  },
+  autor: {
+    fontWeight: '600',
+    marginBottom: 4,
+    color: Colors.gray800
   },
   estado: {
     fontStyle: 'italic',

@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons'
 import { AuthContext } from '../context/AuthContext';
 import { Colors } from '../styles/colors';
+import { Platform } from 'react-native';
 
 // Importación de pantallas
 import LoginScreen from '../screens/LoginScreen';
@@ -77,8 +78,8 @@ function MainTabs() {
         tabBarActiveTintColor: Colors.green600,
         tabBarInactiveTintColor: Colors.gray900,
         tabBarStyle: {
-          height: 80,
-          paddingBottom: 10, 
+          height: Platform.OS === 'android' ? 120 : 75,
+          paddingBottom: 20, 
           paddingTop: 10
         },
         tabBarLabelStyle: {
