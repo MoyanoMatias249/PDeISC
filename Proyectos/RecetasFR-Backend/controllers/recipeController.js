@@ -30,9 +30,15 @@ async function obtenerOcrearIngrediente(client, nombreOriginal) {
 export async function listRecipes(req, res) {
   try {
     const result = await pool.query(
-      `SELECT r.*, u.nombre AS autor FROM recetas r
-       JOIN usuarios u ON r.id_autor = u.id_usuario
-       WHERE estado = 'aprobada'`
+      `SELECT r.*, u.nombre AS autor,
+      EXISTS (
+        SELECT 1 FROM likes l
+        WHERE l.id_usuario = $1 AND l.id_receta = r.id_receta
+      ) AS liked
+      FROM recetas r
+      JOIN usuarios u ON r.id_autor = u.id_usuario
+      WHERE estado = 'aprobada'`,
+      [id_usuario || 0]
     );
     res.json(result.rows);
   } catch (err) {
@@ -287,19 +293,23 @@ export const filterRecipesByIngredients = async (req, res) => {
     const cantidad = ingredientes.length;
 
     const recetasRes = await pool.query(
-      `SELECT r.*, u.nombre AS autor
-       FROM recetas r
-       JOIN usuarios u ON r.id_autor = u.id_usuario
-       WHERE estado = 'aprobada'
-       AND r.id_receta IN (
-         SELECT ri.id_receta
-         FROM receta_ingredientes ri
-         JOIN ingredientes i ON ri.id_ingrediente = i.id_ingrediente
-         WHERE i.nombre = ANY($1::text[])
-         GROUP BY ri.id_receta
-         HAVING COUNT(DISTINCT i.nombre) = $2
-       )`,
-      [ingredientes, cantidad]
+      `SELECT r.*, u.nombre AS autor,
+      EXISTS (
+        SELECT 1 FROM likes l
+        WHERE l.id_usuario = $1 AND l.id_receta = r.id_receta
+      ) AS liked
+      FROM recetas r
+      JOIN usuarios u ON r.id_autor = u.id_usuario
+      WHERE estado = 'aprobada'
+      AND r.id_receta IN (
+        SELECT ri.id_receta
+        FROM receta_ingredientes ri
+        JOIN ingredientes i ON ri.id_ingrediente = i.id_ingrediente
+        WHERE i.nombre = ANY($2::text[])
+        GROUP BY ri.id_receta
+        HAVING COUNT(DISTINCT i.nombre) = $3
+      )`,
+      [id_usuario || 0, ingredientes, cantidad]
     );
 
     const recetas = recetasRes.rows;
@@ -411,5 +421,6 @@ export const getRecetasDelUsuario = async (req, res) => {
     res.status(500).json({ error: 'Error al obtener tus recetas' });
   }
 };
+
 
 
