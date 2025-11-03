@@ -15,19 +15,23 @@ export default function ReviewDraftsScreen({ navigation }: any) {
   const [mensaje, setMensaje] = useState('');
   const [confirmarId, setConfirmarId] = useState<number | null>(null);
 
+  const cargarBorradores = async () => {
+    const data = await getBorradores(user!.token);
+    if (Array.isArray(data)) {
+      setBorradores(data);
+    } else {
+      console.error('Error al obtener borradores:', data);
+      handleAuthError(data);
+    }
+  };
+
   // Carga los borradores al enfocar la pantalla
   useFocusEffect(
     useCallback(() => {
-      getBorradores(user!.token).then((data) => {
-        if (Array.isArray(data)) {
-          setBorradores(data);
-        } else {
-          console.error('Error al obtener borradores:', data);
-          handleAuthError(data);
-        }
-      });
+      cargarBorradores();
     }, [user])
   );
+
 
   // Aprueba una receta y la elimina de la lista local
   const aprobar = async (id: number) => {
@@ -36,7 +40,7 @@ export default function ReviewDraftsScreen({ navigation }: any) {
       handleAuthError(res);
     } else {
       setMensaje(res.message || 'Receta aprobada');
-      setBorradores(borradores.filter((r) => r.id_receta !== id));
+      await cargarBorradores();
     }
   };
 

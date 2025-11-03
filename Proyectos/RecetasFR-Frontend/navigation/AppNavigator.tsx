@@ -78,7 +78,7 @@ function MainTabs() {
         tabBarActiveTintColor: Colors.green600,
         tabBarInactiveTintColor: Colors.gray900,
         tabBarStyle: {
-          height: Platform.OS === 'android' ? 120 : 75,
+          height: Platform.OS === 'android' ? 120 : 85,
           paddingBottom: 20, 
           paddingTop: 10
         },

@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import { View, Text, ScrollView, Button, useWindowDimensions, StyleSheet } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 import { AuthContext } from '../context/AuthContext';
 import IngredientSelector from '../components/IngredientSelector';
 import RecipeCard from '../components/RecipeCard';
@@ -49,6 +50,12 @@ export default function HomeScreen({ navigation }: any) {
     }
     setLoading(false);
   };
+
+  useFocusEffect(
+    useCallback(() => {
+      buscarRecetas(); // vuelve a buscar con los ingredientes seleccionados
+    }, [seleccionados])
+  );
 
   return (
     <ScrollView contentContainerStyle={styles.container}>

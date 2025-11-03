@@ -8,6 +8,7 @@ import { Colors } from '../styles/colors';
 import * as WebBrowser from 'expo-web-browser';
 import * as Google from 'expo-auth-session/providers/google';
 import * as Facebook from 'expo-auth-session/providers/facebook';
+import * as AuthSession from 'expo-auth-session';
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -26,12 +27,15 @@ export default function LoginScreen({ navigation }: any) {
   const [error, setError] = useState('');
   const { login } = useContext(AuthContext);
 
+  const redirectUri = AuthSession.makeRedirectUri();
+  console.log('Redirect URI:', redirectUri);
   // Google OAuth
   const [googleRequest, googleResponse, promptGoogle] = Google.useAuthRequest({
     clientId: Platform.select({
       android: '603349239063-7pepdnogo0f24gtu3atpdpth8gltp1d4.apps.googleusercontent.com',
       web: '603349239063-61iv8uj93t3c7clhjo6r8816t6t3uv35.apps.googleusercontent.com'
-    })
+    }),
+    redirectUri
   });
 
   // Facebook OAuth

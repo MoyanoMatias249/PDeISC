@@ -34,7 +34,7 @@ export default function SuggestionsReviewScreen() {
     const fn = tipo === 'aprobar' ? aprobarSugerencia : rechazarSugerencia;
     const res = await fn(user!.token, id);
     if (!res?.error) {
-      setSugerencias(sugerencias.filter((s) => s.id_sugerencia !== id));
+      await cargar();
     }
     setAccion(null);
   };

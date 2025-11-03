@@ -55,7 +55,7 @@ export default function AdminSuggestionPanel() {
     } else {
       setMensaje(res.message || 'Sugerencia enviada');
       setContenido('');
-      cargar();
+      await cargar();
     }
   };
 

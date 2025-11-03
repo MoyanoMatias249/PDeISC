@@ -1,5 +1,6 @@
 // screens/SearchScreen.tsx
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useCallback } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import { View, TextInput, ScrollView, StyleSheet, useWindowDimensions, Text } from 'react-native';
 import RecipeCard from '../components/RecipeCard';
 import { buscarRecetasPorNombre, listRecipes } from '../services/recipes';
@@ -17,10 +18,16 @@ export default function SearchScreen({ navigation }: any) {
   const { width } = useWindowDimensions();
   const isDesktop = width > 768;
 
-  // Carga todas las recetas al montar
-  useEffect(() => {
-    cargarTodas();
-  }, []);
+  // Carga todas las recetas
+  useFocusEffect(
+    useCallback(() => {
+      if (query.trim() === '') {
+        cargarTodas();
+      } else {
+        buscar(query);
+      }
+    }, [query])
+  );
 
   // Obtiene todas las recetas disponibles
   const cargarTodas = async () => {

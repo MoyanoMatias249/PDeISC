@@ -121,42 +121,104 @@ export async function createRecipe(req, res) {
 
 // Actualizar los datos de una receta existente
 export async function updateRecipe(req, res) {
+  const client = await pool.connect();
   try {
     const { id } = req.params;
     if (isNaN(Number(id))) {
       return res.status(400).json({ error: 'ID de receta inválido' });
     }
 
-    const { titulo, descripcion, pasos, tiempo_estimate, imagen_url, estado } = req.body;
+    const { titulo, descripcion, pasos, tiempo_estimate, imagen_url, estado, ingredientes } = req.body;
 
-    const result = await pool.query(
+    await client.query('BEGIN');
+
+    const result = await client.query(
       `UPDATE recetas SET titulo=$1, descripcion=$2, pasos=$3, tiempo_estimate=$4, imagen_url=$5, estado=$6, fecha_modificacion=NOW()
        WHERE id_receta=$7 RETURNING *`,
       [titulo, descripcion, pasos, tiempo_estimate, imagen_url, estado, id]
     );
 
-    if (result.rows.length === 0) return res.status(404).json({ error: 'Receta no encontrada' });
+    if (result.rows.length === 0) {
+      await client.query('ROLLBACK');
+      return res.status(404).json({ error: 'Receta no encontrada' });
+    }
 
-    res.json(result.rows[0]);
+    // Eliminar ingredientes actuales
+    await client.query(`DELETE FROM receta_ingredientes WHERE id_receta = $1`, [id]);
+
+    const nombresProcesados = new Set();
+
+    for (const ing of ingredientes) {
+      const nombreLimpio = normalizarNombre(ing.nombre);
+      const cantidadLimpia = ing.cantidad?.trim();
+
+      if (
+        !nombreLimpio || nombreLimpio.length < 3 ||
+        !cantidadLimpia || cantidadLimpia.length < 1 ||
+        /[#$/=*_+\-{}[\]\\<>]/.test(nombreLimpio + cantidadLimpia) ||
+        nombresProcesados.has(nombreLimpio)
+      ) continue;
+
+      nombresProcesados.add(nombreLimpio);
+
+      const id_ingrediente = await obtenerOcrearIngrediente(client, nombreLimpio);
+
+      await client.query(
+        `INSERT INTO receta_ingredientes (id_receta, id_ingrediente, cantidad)
+         VALUES ($1, $2, $3)`,
+        [id, id_ingrediente, cantidadLimpia]
+      );
+      await client.query(`
+        DELETE FROM ingredientes
+        WHERE id_ingrediente NOT IN (
+          SELECT DISTINCT id_ingrediente FROM receta_ingredientes
+        )
+      `);
+    }
+
+    await client.query('COMMIT');
+    res.json({ message: 'Receta actualizada correctamente' });
   } catch (err) {
-    console.error(err);
+    await client.query('ROLLBACK');
+    console.error('Error al actualizar receta:', err);
     res.status(500).json({ error: 'Error al actualizar receta' });
+  } finally {
+    client.release();
   }
+  
 }
 
 // Eliminar una receta por ID (solo administradores)
 export async function deleteRecipe(req, res) {
+  const client = await pool.connect();
   try {
     const { id } = req.params;
     if (isNaN(Number(id))) {
       return res.status(400).json({ error: 'ID de receta inválido' });
     }
 
-    await pool.query('DELETE FROM recetas WHERE id_receta = $1', [id]);
+    await client.query('BEGIN');
+
+    await client.query(`DELETE FROM receta_ingredientes WHERE id_receta = $1`, [id]);
+    await client.query(`DELETE FROM likes WHERE id_receta = $1`, [id]);
+    await client.query(`DELETE FROM recetas WHERE id_receta = $1`, [id]);
+
+    // Eliminar ingredientes huérfanos
+    await client.query(`
+      DELETE FROM ingredientes
+      WHERE id_ingrediente NOT IN (
+        SELECT DISTINCT id_ingrediente FROM receta_ingredientes
+      )
+    `);
+
+    await client.query('COMMIT');
     res.json({ ok: true });
   } catch (err) {
+    await client.query('ROLLBACK');
     console.error(err);
     res.status(500).json({ error: 'Error al eliminar receta' });
+  } finally {
+    client.release();
   }
 }
 
