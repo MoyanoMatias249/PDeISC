@@ -47,7 +47,7 @@ Aplicación móvil desarrollada en React Native con backend en Node.js y Postgre
 
 ## APK descargable
 
-- [Descargar APK](https://expo.dev/artifacts/eas/6DyrsxPqrq6kyEjgkpzFfc.apk)
+- [Descargar APK](https://drive.google.com/file/d/1C8q-_ksDBCxGPPoFFroRIWZU59dya5cC/view)
 
 ---
 

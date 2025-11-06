@@ -32,16 +32,16 @@ Aplicación móvil desarrollada en **React Native con Expo**, que permite a los 
 
 ##  Estructura del proyecto
 
-RecetasFR-Frontend/ 
-    ├── assets/ # Imágenes, íconos
-    ├── components/ # Componentes reutilizables 
-    ├── context/ # Contexto global de autenticación 
-    ├── screens/ # Pantallas principales (Login, Register, Home, etc.) 
-    ├── services/ # Funciones para consumir la API 
-    ├── styles/ # Paleta de colores y estilos globales 
-    ├── app.json # Configuración de Expo y Android 
-    ├── eas.json # Perfiles de build para EAS 
-    ├── package.json # Dependencias del proyecto
+RecetasFR-Frontend 
+- ├── assets/ # Imágenes, íconos
+- ├── components/ # Componentes reutilizables 
+- ├── context/ # Contexto global de autenticación 
+- ├── screens/ # Pantallas principales (Login, Register, Home, etc.) 
+- ├── services/ # Funciones para consumir la API 
+- ├── styles/ # Paleta de colores y estilos globales 
+- ├── app.json # Configuración de Expo y Android 
+- ├── eas.json # Perfiles de build para EAS 
+- ├── package.json # Dependencias del proyecto
 
 ---
 
@@ -56,7 +56,7 @@ RecetasFR-Frontend/
 
 ##  APK descargable
 
- [Descargar APK](https://expo.dev/artifacts/eas/6DyrsxPqrq6kyEjgkpzFfc.apk)
+ [Descargar APK](https://drive.google.com/file/d/1C8q-_ksDBCxGPPoFFroRIWZU59dya5cC/view)
 
 ---
 

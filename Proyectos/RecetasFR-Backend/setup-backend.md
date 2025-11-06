@@ -27,7 +27,7 @@ Esta guía explica cómo instalar y ejecutar el backend de la aplicación Receta
 
 | Nombre de variable | clave privada | 
 |--------------------|---------------|
-| DATABASE_UR`       | `postgres://usuario:contraseña@localhost:5432/recetasfr` |
+| DATABASE_UR       | `postgres://usuario:contraseña@localhost:5432/recetasfr` |
 | JWT_SECRET         | `tu_clave_secreta` |
 | BCRYPT_SALT_ROUNDS | `10` |
 
@@ -53,7 +53,7 @@ Asegurate de tener roles como "Usuario" y "Administrador" en la tabla roles.
 ## Ejecución del servidor
 
 - node server
-Esto inicia el servidor en modo desarrollo. Por defecto corre en http://localhost:4000.
+- Esto inicia el servidor en modo desarrollo. Por defecto corre en http://localhost:4000.
 
 ## Seguridad y autenticación
 
