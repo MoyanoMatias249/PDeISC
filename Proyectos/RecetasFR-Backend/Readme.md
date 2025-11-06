@@ -1,307 +1,73 @@
-*Documentación de la API*
+# RecetasFR – Proyecto Final
 
-**Autenticación (/api/auth)**
+Aplicación móvil desarrollada en React Native con backend en Node.js y PostgreSQL. Permite a los usuarios registrarse, iniciar sesión (incluyendo login social con Google y Facebook), crear recetas, dar likes, enviar sugerencias y gestionar roles. Cumple con todos los requisitos funcionales, técnicos y académicos del proyecto final.
 
-***POST /api/auth/register***
-Registra un nuevo usuario con rol "Usuario" por defecto.
+---
 
-- Body:
-{
-  "nombre": "string",
-  "correo": "string",
-  "contraseña": "string"
-}
+## Funcionalidades principales
 
-Respuestas:
-- 201 Created: Usuario registrado
-- 500 Internal Server Error: Error al registrar
+- Registro e inicio de sesión con correo y contraseña
+- Autenticación social con Google y Facebook
+- Roles de usuario: Usuario y Administrador
+- Creación, edición y eliminación de recetas
+- Likes en recetas y visualización personalizada
+- Sugerencias enviadas por usuarios y gestionadas por administradores
+- Filtro de recetas por ingredientes
+- Búsqueda por nombre de receta
+- Persistencia de sesión con JWT
+- Navegación fluida entre pantallas
+- Interfaz responsiva y amigable
 
-**POST /api/auth/login**
-Inicia sesión y devuelve un token JWT.
+---
 
-- Body:
-{
-  "correo": "string",
-  "contraseña": "string"
-}
+## Tecnologías utilizadas
 
-Respuestas:
-- 200 OK: Token y datos del usuario
-- 400 Bad Request: Credenciales inválidas
-- 500 Internal Server Error: Error al iniciar sesión
+### Frontend
+- React Native + Expo
+- Context API para estado global
+- `expo-auth-session` para login social
+- `react-navigation` para navegación
+- EAS Build para generación de APK
 
-**Usuarios (/api/users). Requiere token y rol Administrador.***
+### Backend
+- Node.js + Express
+- PostgreSQL
+- JWT para autenticación
+- Bcrypt para encriptación
+- Dotenv para configuración segura
 
-***GET /api/users***
-Obtiene todos los usuarios del sistema.
+---
 
-Respuestas:
-- 200 OK: Lista de usuarios
-- 500 Internal Server Error: Error al obtener usuarios
+## Repositorios
 
-***PUT /api/users/:id/rol***
-Actualiza el rol de un usuario.
+- **Frontend:** [RecetasFR-Frontend](https://github.com/MoyanoMatias249/PDeISC/tree/main/Proyectos/RecetasFR-Frontend)
+- **Backend:** [RecetasFR-Backend](https://github.com/MoyanoMatias249/PDeISC/tree/main/Proyectos/RecetasFR-Backend)
 
-Body:
+---
 
-json
-{
-  "nuevo_rol": "Administrador" | "Empleado" | "Usuario"
-}
-Respuestas:
+## APK descargable
 
-200 OK: Rol actualizado
+- [Descargar APK](https://expo.dev/artifacts/eas/6DyrsxPqrq6kyEjgkpzFfc.apk)
 
-400 Bad Request: Rol inválido
+---
 
-404 Not Found: Usuario no encontrado
+## Documentación incluida
 
-***DELETE /api/users/:id***
-Elimina un usuario por ID.
+- [Manual de Usuario](manual-usuario.md)
+- [Guía de Instalación – Backend](setup-backend.md)
+- [Documentación de la API](api-doc.md)
 
-Respuestas:
+---
 
-200 OK: Usuario eliminado
+## Cómo probar la app
 
-500 Internal Server Error: Error al eliminar
+1. Instalar el APK en un dispositivo Android
+2. Registrarse o iniciar sesión (correo o login social)
+3. Crear recetas, dar likes, enviar sugerencias
+4. Cambiar de rol si se tiene acceso administrativo
+5. Probar filtros, búsquedas y navegación
 
-**Recetas (/api/recipes). Requiere token. Roles varían por acción.**
 
-***GET /api/recipes***
-Obtiene todas las recetas aprobadas.
+## Autor
 
-Roles permitidos: Usuario, Empleado, Administrador
-
-Respuestas:
-
-200 OK: Lista de recetas
-
-***GET /api/recipes/:id***
-Obtiene una receta por ID con ingredientes.
-
-Respuestas:
-
-200 OK: Receta con ingredientes
-
-404 Not Found: Receta no encontrada
-
-***POST /api/recipes***
-Crea una receta en estado "borrador".
-
-Roles permitidos: Empleado, Administrador
-
-Body:
-
-json
-{
-  "titulo": "string",
-  "descripcion": "string",
-  "pasos": "string",
-  "tiempo_estimate": number,
-  "imagen_url": "string",
-  "ingredientes": [{ "nombre": "string", "cantidad": "string" }]
-}
-Respuestas:
-
-201 Created: Receta creada
-
-400 Bad Request: Datos inválidos
-
-***PUT /api/recipes/:id***
-Actualiza una receta existente.
-
-Roles permitidos: Empleado, Administrador
-
-Body: Igual al POST
-
-Respuestas:
-
-200 OK: Receta actualizada
-
-404 Not Found: Receta no encontrada
-
-***DELETE /api/recipes/:id***
-Elimina una receta por ID.
-
-Roles permitidos: Administrador
-
-Respuestas:
-
-200 OK: Receta eliminada
-
-***PUT /api/recipes/:id/aprobar***
-Aprueba una receta.
-
-Roles permitidos: Administrador
-
-Respuestas:
-
-200 OK: Receta aprobada
-
-404 Not Found: Receta no encontrada
-
-***GET /api/recipes/mis***
-Obtiene recetas creadas por el usuario autenticado.
-
-Roles permitidos: Usuario, Empleado, Administrador
-
-Respuestas:
-
-200 OK: Lista de recetas propias
-
-***GET /api/recipes/drafts***
-Obtiene recetas en estado "borrador".
-
-Roles permitidos: Administrador
-
-Respuestas:
-
-200 OK: Lista de borradores
-
-***GET /api/recipes/search?query=...***
-Busca recetas por título.
-
-Respuestas:
-
-200 OK: Recetas coincidentes
-
-***POST /api/recipes/filter***
-Filtra recetas por ingredientes exactos.
-
-Body:
-
-json
-{
-  "ingredientes": ["string", "string"]
-}
-Respuestas:
-
-200 OK: Recetas filtradas
-
-400 Bad Request: Ingredientes faltantes
-
-***POST /api/recipes/:id/like***
-Marca una receta con "like".
-
-Roles permitidos: Usuario
-
-Respuestas:
-
-200 OK: Like registrado
-
-400 Bad Request: Ya votaste
-
-***DELETE /api/recipes/:id/like***
-Quita el "like" de una receta.
-
-Roles permitidos: Usuario
-
-Respuestas:
-
-200 OK: Like eliminado
-
-***GET /api/recipes/liked***
-Obtiene recetas que el usuario marcó con "like".
-
-Roles permitidos: Usuario
-
-Respuestas:
-
-200 OK: Lista de recetas con like
-
-**Sugerencias (/api/suggestions)**
-
-***POST /api/suggestions***
-Crea una nueva sugerencia.
-
-Roles permitidos: Usuario, Administrador
-
-Body:
-
-json
-{
-  "contenido": "string"
-}
-Respuestas:
-
-201 Created: Sugerencia enviada
-
-***GET /api/suggestions***
-Obtiene sugerencias pendientes.
-
-Roles permitidos: Empleado, Administrador
-
-Respuestas:
-
-200 OK: Lista de sugerencias
-
-***GET /api/suggestions/mis***
-Obtiene sugerencias propias.
-
-Roles permitidos: Usuario, Administrador
-
-Respuestas:
-
-200 OK: Lista de sugerencias del usuario
-
-***PUT /api/suggestions/:id***
-Modifica una sugerencia pendiente propia.
-
-Roles permitidos: Usuario
-
-Body:
-
-json
-{
-  "contenido": "string"
-}
-Respuestas:
-
-200 OK: Sugerencia actualizada
-
-404 Not Found: No se puede modificar
-
-***PUT /api/suggestions/:id/aprobar***
-Aprueba una sugerencia.
-
-Roles permitidos: Empleado, Administrador
-
-Respuestas:
-
-200 OK: Sugerencia aprobada
-
-***PUT /api/suggestions/:id/rechazar***
-Rechaza una sugerencia.
-
-Roles permitidos: Empleado, Administrador
-
-Respuestas:
-
-200 OK: Sugerencia rechazada
-
-***DELETE /api/suggestions/:id***
-Elimina una sugerencia propia.
-
-Roles permitidos: Usuario, Administrador
-
-Respuestas:
-
-200 OK: Sugerencia eliminada
-
-404 Not Found: No se puede eliminar
-
-**Ingredientes (/api/ingredients)**
-
-***GET /api/ingredients***
-Obtiene todos los ingredientes disponibles.
-
-Roles permitidos: Usuario, Empleado, Administrador
-
-Respuestas:
-
-200 OK: Lista de ingredientes
-
-**Seguridad**
-Todos los endpoints (excepto /auth) requieren:
-
-Authorization: Bearer <token>
+**Matias Moyano - 2025 - 7mo 4ta - EESTN5**  

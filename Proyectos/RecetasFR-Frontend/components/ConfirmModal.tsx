@@ -1,3 +1,4 @@
+// components/ConfirmModal.tsx
 import React from 'react';
 import { Modal, View, Text, Button, StyleSheet, useWindowDimensions } from 'react-native';
 import { Colors } from '../styles/colors';

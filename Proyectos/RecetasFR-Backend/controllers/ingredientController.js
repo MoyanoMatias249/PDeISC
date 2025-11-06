@@ -1,3 +1,4 @@
+// controllers/ingredientController.js
 import pool from '../config/db.js';
 
 // Obtener todos los ingredientes disponibles para selección

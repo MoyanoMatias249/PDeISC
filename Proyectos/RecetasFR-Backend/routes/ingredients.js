@@ -1,3 +1,4 @@
+// routes/ingredints.js
 import { Router } from 'express';
 import { listAllIngredients, createIngredients, updateIngredient, deleteIngredient } from '../controllers/ingredientController.js';
 import { authenticate, authorizeRoles } from '../middleware/auth.js';

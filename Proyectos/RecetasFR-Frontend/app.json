@@ -21,22 +21,16 @@
       "intentFilters": [
         {
           "action": "VIEW",
-          "data": [
-            {
-              "scheme": "https",
-              "host": "auth.expo.io",
-              "pathPrefix": "/@moyas249/recetasfr"
-            }
-          ],
-          "category": [
-            "BROWSABLE",
-            "DEFAULT"
-          ]
+          "data": {
+              "scheme": "com.recetasfr.app",
+              "host": "oauthredirect"
+            },
+          "category": ["BROWSABLE", "DEFAULT"]
         }
       ],
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logo.png",
-        "backgroundColor": "#dddddd"
+        "foregroundImage": "./assets/logo-app.png",
+        "backgroundColor": "#0c5b25"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false

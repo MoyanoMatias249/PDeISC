@@ -1,3 +1,4 @@
+// screens/HomeScreen.tsx
 import React, { useState, useEffect, useContext, useCallback } from 'react';
 import { View, Text, ScrollView, Button, useWindowDimensions, StyleSheet } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';

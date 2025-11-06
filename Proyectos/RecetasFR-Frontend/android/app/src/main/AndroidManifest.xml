@@ -22,7 +22,7 @@
       </intent-filter>
       <intent-filter data-generated="true">
         <action android:name="android.intent.action.VIEW"/>
-        <data android:scheme="https" android:host="auth.expo.io" android:pathPrefix="/@moyas249/recetasfr"/>
+        <data android:scheme="com.recetasfr.app" android:host="oauthredirect"/>
         <data android:scheme="exp+recetasfr"/>
         <category android:name="android.intent.category.BROWSABLE"/>
         <category android:name="android.intent.category.DEFAULT"/>

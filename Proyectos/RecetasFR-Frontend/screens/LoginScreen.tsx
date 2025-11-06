@@ -12,7 +12,7 @@ import * as AuthSession from 'expo-auth-session';
 
 WebBrowser.maybeCompleteAuthSession();
 
-// Tipo de perfil social recibido tras login con Google o Facebook.
+// Tipo de perfil social recibido tras login con Google o Facebook
 type SocialProfile = {
   nombre: string;
   correo: string;
@@ -27,14 +27,11 @@ export default function LoginScreen({ navigation }: any) {
   const [error, setError] = useState('');
   const { login } = useContext(AuthContext);
 
-  const redirectUri = AuthSession.makeRedirectUri();
-  console.log('Redirect URI:', redirectUri);
-  // Google OAuth
+  const redirectUri = AuthSession.makeRedirectUri({ native: 'com.recetasfr.app:/oauthredirect' });
+
+// Google OAuth, solo android
   const [googleRequest, googleResponse, promptGoogle] = Google.useAuthRequest({
-    clientId: Platform.select({
-      android: '603349239063-7pepdnogo0f24gtu3atpdpth8gltp1d4.apps.googleusercontent.com',
-      web: '603349239063-61iv8uj93t3c7clhjo6r8816t6t3uv35.apps.googleusercontent.com'
-    }),
+    clientId: '603349239063-7pepdnogo0f24gtu3atpdpth8gltp1d4.apps.googleusercontent.com',
     redirectUri
   });
 
@@ -43,36 +40,46 @@ export default function LoginScreen({ navigation }: any) {
     clientId: '1535057430867724'
   });
 
-  // Efecto que escucha respuestas de login social y obtiene perfil del usuario.
+// Efecto que escucha respuestas de login social y obtiene perfil del usuario.
   useEffect(() => {
     const fetchGoogleProfile = async () => {
-      if (googleResponse?.type !== 'success') return;
-      const token = (googleResponse as any).authentication?.accessToken;
-      if (!token) return;
+      try {
+        if (googleResponse?.type !== 'success') return;
+        const token = (googleResponse as any).authentication?.accessToken;
+        if (!token) return;
 
-      const res = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      const profile = await res.json();
-      await loginConBackend({
-        nombre: profile.name,
-        correo: profile.email,
-        token
-      });
+        await WebBrowser.dismissBrowser(); // fuerza cierre del navegador
+
+        const res = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const profile = await res.json();
+        await loginConBackend({
+          nombre: profile.name,
+          correo: profile.email,
+          token
+        });
+      } catch {
+        setError('Error al obtener perfil de Google');
+      }
     };
 
     const fetchFacebookProfile = async () => {
-      if (fbResponse?.type !== 'success') return;
-      const token = (fbResponse as any).authentication?.accessToken;
-      if (!token) return;
+      try {
+        if (fbResponse?.type !== 'success') return;
+        const token = (fbResponse as any).authentication?.accessToken;
+        if (!token) return;
 
-      const res = await fetch(`https://graph.facebook.com/me?fields=name,email&access_token=${token}`);
-      const profile = await res.json();
-      await loginConBackend({
-        nombre: profile.name,
-        correo: profile.email,
-        token
-      });
+        const res = await fetch(`https://graph.facebook.com/me?fields=name,email&access_token=${token}`);
+        const profile = await res.json();
+        await loginConBackend({
+          nombre: profile.name,
+          correo: profile.email,
+          token
+        });
+      } catch {
+        setError('Error al obtener perfil de Facebook');
+      }
     };
 
     fetchGoogleProfile();
@@ -130,18 +137,26 @@ export default function LoginScreen({ navigation }: any) {
           <Button title="Ingresar" onPress={handleLogin} color={Colors.green700} />
           <Button title="Registrarse" onPress={() => navigation.navigate('Register')} color={Colors.gray600} />
         </View>
-      <View style={styles.socialRow}>
-        <Pressable onPress={() => promptGoogle()} style={styles.circleButton}>
-          <Image source={require('../assets/google-icon.png')} style={styles.circleIcon} />
-        </Pressable>
 
-        <Pressable onPress={() => promptFacebook()} style={[styles.circleButton, styles.fbCircle]}>
-          <Image source={require('../assets/facebook-icon.png')} style={styles.circleIcon} />
-        </Pressable>
-      </View>
+        <View style={styles.socialRow}>
+          <Pressable onPress={() => promptGoogle()} style={styles.circleButton}>
+            <Image source={require('../assets/google-icon.png')} style={styles.circleIcon} />
+          </Pressable>
+
+          <Pressable onPress={() => promptFacebook()} style={[styles.circleButton, styles.fbCircle]}>
+            <Image source={require('../assets/facebook-icon.png')} style={styles.circleIcon} />
+          </Pressable>
+        </View>
 
         {error ? <Text style={styles.error}>{error}</Text> : null}
       </View>
+
+      <Text style={{ color: 'black', textAlign: 'center', marginTop: 20 }}>
+        Bienvenido a Recetas FR
+      </Text>
+      <Text style={{ fontSize: 12, color: 'gray', textAlign: 'center' }}>
+        URI: {redirectUri}
+      </Text>
     </View>
   );
 }
@@ -152,7 +167,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.gray100,
     flex: 1,
     alignItems: 'center',
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   box: {
     width: '100%',
@@ -210,8 +225,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 2
   },
-  fbCircle: {
-  },
+  fbCircle: {},
   circleIcon: {
     width: 37,
     height: 37,
