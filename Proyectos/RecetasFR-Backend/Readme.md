@@ -55,7 +55,7 @@ Aplicación móvil desarrollada en React Native con backend en Node.js y Postgre
 
 - [Manual de Usuario](manual-usuario.md)
 - [Guía de Instalación – Backend](setup-backend.md)
-- [Documentación de la API](api-doc.md)
+- [Documentación de la API](api-docs.md)
 
 ---
 
