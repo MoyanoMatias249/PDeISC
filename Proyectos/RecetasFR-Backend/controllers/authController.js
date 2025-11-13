@@ -72,9 +72,6 @@ export const socialLogin = async (req, res) => {
   const { nombre, correo, token, proveedor } = req.body;
 
   try {
-    // Validar el token con Google o Facebook si querés hacerlo bien
-    // Por ahora, asumimos que es válido
-
     const result = await pool.query('SELECT * FROM usuarios WHERE correo = $1', [correo]);
     let user = result.rows[0];
 
@@ -110,4 +107,5 @@ export const socialLogin = async (req, res) => {
     console.error('Error en login social:', err);
     res.status(500).json({ error: 'Error en login social' });
   }
+
 };
